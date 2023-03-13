@@ -1,0 +1,10 @@
+.resultSearch{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+.imgSearch{
+    width: 80px;
+    height: 8vh;
+
+}
