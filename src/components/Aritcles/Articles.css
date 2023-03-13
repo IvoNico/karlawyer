@@ -1,0 +1,15 @@
+
+.articles{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 426px;
+    height: 251px;
+    left: 205px;
+    
+}
+
+.img{
+    width: 426px;
+    height: 251px;
+}

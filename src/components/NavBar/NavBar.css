@@ -1,0 +1,44 @@
+.navBar{
+    margin: 0 auto;
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom:  1px solid #000000;
+}
+
+.Logo{
+    margin: 0 auto;
+    position: relative;
+    width: 400px;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    top: 30px;
+}
+
+.aboutme{
+    position: relative;
+    width: 80px;
+    height: 20px;
+    top: 16px;
+}
+
+.redesSociales{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 16px;
+    gap: 10px;
+    margin-right: 200px;
+}
+
+.instagram{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 16px;
+    
+}
+
