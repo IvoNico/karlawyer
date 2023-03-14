@@ -1,0 +1,22 @@
+.instagram{
+    position: relative;
+    width: 35px;
+    height: 20px;
+    top: 16px;
+}
+.cursor{
+    cursor: pointer;
+}
+.searchBar{
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 50px;
+    margin-left: 30px;
+    padding: 3px;
+}
+
+.remove-searchbar-button{
+    border: none;
+    margin-left: 3px;
+}

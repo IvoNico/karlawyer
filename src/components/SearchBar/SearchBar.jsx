@@ -1,95 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
-import './SearchBar.css'
+import { fetchSearchResults } from "../SearchServices/SearchServices";
+import ClipLoader from "react-spinners/ClipLoader";
+import "./SearchBar.css";
+import SearchResult from "../SearchServices/SearchResult";
+import NoResultsMessage from "../SearchServices/NoResultsMessage";
 
-const SearchBar = () => {
+export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
+  const handleResultClick = useCallback((id) => {
+    navigate(`/article/${id}`);
+  }, [navigate]);
 
   useEffect(() => {
-    const fetchSearchResults = async () => {
-      const nameQuery = query(
-        collection(db, "blogs"),
-        where("name", ">=", searchTerm),
-        where("name", "<=", searchTerm + "\uf8ff")
-      );
-      const descriptionQuery = query(
-        collection(db, "blogs"),
-        where("description", ">=", searchTerm),
-        where("description", "<=", searchTerm + "\uf8ff")
-      );
-      const parrafoQuery = query(
-        collection(db, "blogs"),
-        where("parrafo", ">=", searchTerm),
-        where("parrafo", "<=", searchTerm + "\uf8ff")
-      );
-      const [nameResults, descriptionResults, parrafoResults] = await Promise.all([
-        getDocs(nameQuery),
-        getDocs(descriptionQuery),
-        getDocs(parrafoQuery),
-      ]);
-
-      const results = [];
-      const ids = new Set(); // Use a Set to ensure unique results
-      nameResults.forEach((doc) => {
-        if (!ids.has(doc.id)) {
-          results.push({ id: doc.id, ...doc.data() });
-          ids.add(doc.id);
-        }
-      });
-      descriptionResults.forEach((doc) => {
-        if (!ids.has(doc.id)) {
-          results.push({ id: doc.id, ...doc.data() });
-          ids.add(doc.id);
-        }
-      });
-      parrafoResults.forEach((doc) => {
-        if (!ids.has(doc.id)) {
-          results.push({ id: doc.id, ...doc.data() });
-          ids.add(doc.id);
-        }
-      });
-      setSearchResults(results);
+    const fetchResults = async () => {
+      if (searchTerm !== "") {
+        setIsLoading(true);
+        const results = await fetchSearchResults(searchTerm);
+        setSearchResults(results);
+        setIsLoading(false);
+      } else {
+        setSearchResults([]);
+      }
     };
-
-    if (searchTerm !== "") {
-      fetchSearchResults();
-    } else {
-      setSearchResults([]);
-    }
+    const timeoutId = setTimeout(fetchResults, 500);
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [searchTerm]);
-
-  const handleResultClick = (id) => {
-    navigate(`/article/${id}`);
-  };
-
   return (
     <div>
-      <input type="text" onChange={handleSearch} value={searchTerm} />
-      {searchResults.length > 0 && (
-        <ul >
-          {searchResults.map((result) => (
-            <li className="resultSearch" key={result.id} onClick={() => handleResultClick(result.id)}>
-              <div>
-                <img className="imgSearch" src={result.img} alt={result.name} />
-              </div>
-              <div>
-                <h3>{result.name}</h3>
-                <p>{result.description}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div>
+        <input
+          type="text"
+          placeholder="Comienza a escribir"
+          onChange={handleSearch}
+          value={searchTerm}
+        />
+        {isLoading ? (
+          <ClipLoader />
+        ) : (
+          searchResults.length > 0 && (
+            <SearchResult results={searchResults} handleResultClick={handleResultClick} />
+          )
+        )}
+        <NoResultsMessage searchTerm={searchTerm} isLoading={isLoading} searchResults={searchResults}/>
+      </div>
     </div>
   );
-};
-
-export default SearchBar;
+}

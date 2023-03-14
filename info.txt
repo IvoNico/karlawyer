@@ -1,0 +1,14 @@
+const [imageList, setImageList] = useState([])
+const imageListRef= ref(storage, "utils/")
+
+
+useEffect(() => {listAll(imageListRef).then(response => {const downloadPromises = response.items.map(item => getDownloadURL(item)) 
+        Promise.all(downloadPromises).then(urls => {
+                setImageList(prevList => [ ...urls])
+            }).catch(error => {
+                console.error(error)
+            })
+        }).catch(error => {
+            console.error(error)
+        })
+    }, [imageListRef])

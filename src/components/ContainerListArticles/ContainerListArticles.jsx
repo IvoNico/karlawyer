@@ -20,7 +20,7 @@ export default function ItemsListContainer () {
   }, [])
 
   return (
-    <section className="sectionItems">
+    <main className="sectionItems">
       <h2>Blogs</h2>
       <div className="articleList">
         {items.length === 0 ? (
@@ -29,7 +29,7 @@ export default function ItemsListContainer () {
           <ListArticles articles={items} />
         )}
       </div>
-    </section>
+    </main>
   )
 }
 
