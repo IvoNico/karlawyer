@@ -1,8 +1,10 @@
-.instagram{
-    position: relative;
-    width: 35px;
-    height: 20px;
-    top: 16px;
+
+.redesNavBar{
+    
+    position: relative ;
+    width: 35px ;
+    height: 20px ;
+    top: 16px ;
 }
 .cursor{
     cursor: pointer;
@@ -10,13 +12,27 @@
 .searchBar{
     position: absolute;
     display: flex;
-    align-items: flex-end;
-    margin-top: 50px;
-    margin-left: 30px;
+    align-items:baseline;
+    margin-top: 30px;
+    margin-left: -110px;
     padding: 3px;
+    box-shadow: 5px 3px 15px 0.2px rgba(164, 83, 245, 0.299);
+    z-index: 1000 !important;
 }
 
 .remove-searchbar-button{
+    position: absolute;
+    right: 0;
+    
     border: none;
-    margin-left: 3px;
+    background: none;
+}
+.btn{
+    background:none;
+    width: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.NavredesLInks{
+    background-color: white;
 }

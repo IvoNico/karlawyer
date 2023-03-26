@@ -1,68 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import { getDownloadURL,  ref } from 'firebase/storage'
-import { storage } from '../../firebase/firebase'
-import SearchBar from '../SearchBar/SearchBar'
-import './NavBarlist.css'
-import initWow from '../../Utils/Wowjs/Wowjs'
+import React, { useEffect, useState } from 'react';
+import SearchBar from '../SearchBar/SearchBar';
+import './NavBarlist.css';
+import initWow from '../../Utils/Wowjs/Wowjs';
 import { X } from 'react-feather';
+import { fetchSocialImages } from '../FetchSocialImage/FetchSocialImage';
+import { Link } from 'react-router-dom';
 
-
-
-export default function NavBarList(){
-    const imageInstagram= ref(storage, "gs://karlawyer-3efd3.appspot.com/utils/Instagram.svg")
-    const imageFacebook= ref(storage, "gs://karlawyer-3efd3.appspot.com/utils/Facebook.svg")
-    const imageLinkedin= ref(storage, "gs://karlawyer-3efd3.appspot.com/utils/Linkedin.svg")
-    const imageLupita= ref(storage, "gs://karlawyer-3efd3.appspot.com/utils/Lupita.svg")
-    const [imageInsta, setImageInsta] = useState("")
-    const [imageFace, setImageFace] = useState("")
-    const [imageLinke, setImageLinke] = useState("")
-    const [imageLupi, setImageLupi] = useState("")
+export default function NavBarList() {
+    const [images, setImages] = useState({});
     const [showSearch, setShowSearch] = useState(false);
 
     const handleImageClick = () => {
     setShowSearch(!showSearch);
     };
-    
+
     const handleRemoveSearchBar = () => {
     setShowSearch(false);
     };
 
-    useEffect(() => {initWow();}, []);
-    
-    //Traer la imagen del logo al banner
     useEffect(() => {
-        const imageRefs = [imageInstagram, imageFacebook, imageLinkedin, imageLupita];
-        imageRefs.forEach(ref => {
-            getDownloadURL(ref)
-            .then((url) => {
-                if (ref === imageInstagram) {
-                    setImageInsta(url);
-                } else if (ref === imageFacebook) {
-                setImageFace(url);
-                } else if (ref === imageLinkedin) {
-                setImageLinke(url);
-                } else if (ref === imageLupita) {
-                setImageLupi(url);
-                }
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-        });
-        }, [imageInstagram, imageFacebook, imageLinkedin, imageLupita]);
+        initWow();
+        fetchSocialImages().then((images) => {setImages(images);}).catch((error) => {console.error(error);});
+    }, []);
 
-return(
-    <>
-        <img className="instagram" src={imageInsta} alt="logo-Instagram" />
-        <img className="instagram" src={imageFace} alt="logo-Facebook" />
-        <img className="instagram" src={imageLinke} alt="logo-Linkedin" />
-        <img className="instagram cursor" src={imageLupi} alt="logo-Lupa" onClick={handleImageClick} />
+return (
+    <div className='navBarSocial'>
+        <Link className='NavredesLInks' to="https://instagram.com/karlawyer06?igshid=YmMyMTA2M2Y=" target="_blank"><img className="redesNavBar" src={images.instagram} alt="logo-Instagram" /></Link>
+        <Link className='NavredesLInks' to="https://twitter.com/karlagribaudo?s=11&t=Wj6Zb42sSoVq_lD6_7KCfQ" target="_blank"><img className="redesNavBar" src={images.facebook} alt="logo-Facebook" /></Link>
+        <Link className='NavredesLInks' to="https://www.linkedin.com/in/karla-eliana-gribaudo-8269461b1" target="_blank"><img className="redesNavBar" src={images.linkedin} alt="logo-Linkedin" /></Link>
+        <img className="redesNavBar cursor" src={images.lupa} alt="logo-Lupa" onClick={handleImageClick} />
         {showSearch && (
             <div className='wow searchBar animate__animated animate__backInDown'>
                 <SearchBar />
-                <button className="remove-searchbar-button" onClick={handleRemoveSearchBar}>  <X size={30} width={15} height={15} />
- </button>
+                <button className="remove-searchbar-button" onClick={handleRemoveSearchBar}>  <X className='btn'   /></button>
             </div>
         )}
-    </>)}
+    </div>)}
 

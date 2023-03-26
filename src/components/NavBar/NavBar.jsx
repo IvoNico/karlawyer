@@ -24,7 +24,8 @@ return (
                 <img className={`navbar ${path === "/" ? "logoImg" : "other-img"}`} src={logoUrl} alt="logo" />
         </NavLink>
         <div className='wow redesSociales animate__animated animate__backInDown'>
-            <span className='aboutme'>Sobre mí</span>
+            <NavLink to={`/aboutMe`} className='aboutme' activeclassname='active'>  Sobre mí </NavLink>
+            <span className='aboutme'>Recursos</span>
             <NavBarList/>
             </div>
         </nav>

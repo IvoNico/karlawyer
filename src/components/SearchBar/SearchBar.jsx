@@ -35,22 +35,18 @@ export default function SearchBar() {
       clearTimeout(timeoutId);
     };
   }, [searchTerm]);
+
   return (
-    <div>
+    <div className="search">
       <div>
-        <input
-          type="text"
-          placeholder="Comienza a escribir"
-          onChange={handleSearch}
-          value={searchTerm}
-        />
+        <input className="inputSearch" type="text" placeholder="Comienza a escribir" onChange={handleSearch} value={searchTerm}/>
         {isLoading ? (
-          <ClipLoader />
-        ) : (
-          searchResults.length > 0 && (
-            <SearchResult results={searchResults} handleResultClick={handleResultClick} />
-          )
-        )}
+          <ClipLoader className="ClipLoader" />
+          ) : (
+          searchResults.map(result => (
+          <SearchResult className="inputResult" key={result.id} result={result} handleResultClick={handleResultClick} />
+          ))
+          )}
         <NoResultsMessage searchTerm={searchTerm} isLoading={isLoading} searchResults={searchResults}/>
       </div>
     </div>

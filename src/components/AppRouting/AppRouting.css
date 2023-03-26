@@ -1,0 +1,9 @@
+.ListSection{
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.itemListSection{
+    margin: 0px 64px 0px 64px;
+}

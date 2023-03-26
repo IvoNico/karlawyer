@@ -1,0 +1,65 @@
+.footer{
+    height: 20vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+}
+.footerParrafo{
+    color: white;
+    background-color: black;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.footerRedes{
+    background-color: black;
+    position: relative;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 48px;
+    
+}
+.footerSociales{
+    background-color: black;
+    
+}
+.redes{
+    background-color: black;
+    position: relative;
+    width: 35px;
+    height: 20px;
+    top: 16px;
+    margin: 0px 40px 20px 0px;
+}
+
+.mail{
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.logoFooter{
+    
+    background-color: black;
+    margin-left: 48px;
+    border-bottom: none;
+}
+.logoFooterImg{
+    width: 236px;
+    background-color: black;
+    border: none;
+}
+.redesLInks{
+    background-color: black;
+}

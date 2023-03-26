@@ -1,0 +1,43 @@
+.unicoArticle{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 200px 0px 200px;
+}
+.unicoArtTitle{
+    position: relative;
+    top: 0;
+    margin: 59px 0px 16px 0px;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    margin-top: 57px;
+    
+}
+.unicoSubtitle{
+    position: relative;
+    top: 0;
+    margin: 34px 0px 26px 0px;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    
+}
+.unicoImg1{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    height: 30vh;
+}
+
+.unicoParrafo2{
+    margin: 23px 0px 28px 0px;
+}
+.Author{
+    position: relative;
+    bottom: 0;
+    margin-top: 146px;
+}
