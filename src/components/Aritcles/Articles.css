@@ -60,7 +60,12 @@
 
 /* Responsive */
 @media (max-width:858px){
-    
-    
-    
+    .articles{
+        width: 200px;
+        height: 20vh;
+        margin: 5px ;
+    }
+    .img{
+        height: 10vh;
+    }
 }

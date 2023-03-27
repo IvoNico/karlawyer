@@ -127,10 +127,19 @@
         z-index: 1000;
     }
     #check:checked ~ .aboutMeDiv{
-        right: -100%; /* Cambia left por right */
+        right: -100%;
+        display: none; /* Cambia left por right */
     }
-    
+    .Logo{
+        position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+        
+    }
     .logoImg{
+        margin: 0 auto;
         width: 250px;
         height: 10vh;
         
