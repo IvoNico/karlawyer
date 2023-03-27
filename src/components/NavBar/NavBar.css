@@ -49,6 +49,13 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
+.aboutMeDiv{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+    margin-right: 300px;
+}
 
 .redesSociales{
     position: absolute;
@@ -71,4 +78,64 @@
     align-items:flex-end;
     cursor: default;
     border-bottom: none;
+}
+
+
+.btnMenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.checkBtn{
+    cursor: pointer;
+    width: 20px;
+    display: none;
+}
+#check{
+    display: none;
+}
+
+/*RESPONSIVE*/
+
+@media (max-width:858px){
+    .home-page{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .checkBtn{
+        display: block;
+        width: 50px;
+        margin: 10px 10px 10px 10px;
+    }
+    .redesSociales{
+        right: 0;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .aboutMeDiv{
+        display: block;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: 21%;
+        color: rgb(0, 0, 0);
+        margin-top: 6vh;
+        padding: 15px;
+        transition:all .5s;
+        z-index: 1000;
+    }
+    #check:checked ~ .aboutMeDiv{
+        right: -100%; /* Cambia left por right */
+    }
+    
+    .logoImg{
+        width: 250px;
+        height: 10vh;
+        
+    }
+    .aboutme{
+        margin-bottom: 25px;
+    }
 }
