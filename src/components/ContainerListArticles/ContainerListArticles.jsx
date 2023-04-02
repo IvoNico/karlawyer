@@ -16,8 +16,11 @@ export default function ItemsListContainer () {
       });
   }, []);
 
+  
+
   return (
     <main className="sectionItems">
+
       <h1 className='title'>PARA FREELANCERS Y NÓMADES DIGITALES QUE BUSCAN INFORMARSE SOBRE ASPECTOS LEGALES Y FISCALES DE SU TRABAJO PARA OPTIMIZAR SU SITUACIÓN FINANCIERA.</h1>
       <div className='sectionArticles'>
         <h2 className='titleArticulo'>Artículos</h2>

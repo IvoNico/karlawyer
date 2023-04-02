@@ -1,4 +1,5 @@
 
+
 import {BrowserRouter, Routes, Route} from 'react-router-dom' 
 import ArticleDetailsContainer from '../ArticleDetailsContainer/ArticleDetailsContainer'
 import ItemsListContainer from '../ContainerListArticles/ContainerListArticles'
@@ -8,22 +9,25 @@ import Footer from '../Pages/Footer/Footer'
 import SectionList from '../SectionList/SectionList'
 import './AppRouting.css'
 
+
 export default function AppRouting (){
+   
+
     return (
     <BrowserRouter>
     <header>
         <NavBar/>
     </header>
+    
     <SectionList/>
-    <Routes>
-        
+    <Routes>  
         <Route path='/' element={<ItemsListContainer/>}/>
         <Route path="/article/:id" element={<ArticleDetailsContainer/>} />
-        <Route path="/aboutMe" element={<AboutMe/>} />
-        
+        <Route path="/aboutMe" element={<AboutMe/>} />  
     </Routes>
     <footer>
         <Footer/>
     </footer>
+    
     </BrowserRouter>)
 }

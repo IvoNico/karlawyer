@@ -5,6 +5,7 @@ import {NavLink, useLocation} from "react-router-dom";
 import './NavBar.css';
 import NavBarList from '../NavBarList/NavBarLis';
 import { Menu} from 'react-feather';
+import SkeletonColor from '../../Utils/Loadings/LoadingText';
 
 
 
@@ -20,15 +21,24 @@ export default function NavBar() {
 useEffect(() => {
     getDownloadURL(logoRef).then((url) => {setLogoUrl(url);}).catch((error) => {console.error(error);});}, [logoRef]);
 
+    const [loading, SetLoading] = useState(true)
+    useEffect(()=>{
+        setTimeout(()=>{
+            SetLoading(false)
+        }, 1000)
+    }, [])
+
+
 return (
     <nav className={`navbar ${path === "/" ? "home-page" : "other-page"}`}>
         <input type='checkbox' id='check' />
             <label htmlFor='check' className='checkBtn'>
                 <Menu/>
             </label>
-        <NavLink to='/' className={`navbar ${path === "/" ? "Logo" : "other-logo"}`}>
-                <img className={`navbar ${path === "/" ? "logoImg" : "other-img"}`} src={logoUrl} alt="logo" />
-        </NavLink>
+            { loading ? <SkeletonColor className={`navbar ${path === "/" ? "logoImg" : "other-img"}`} /> : <>
+                <NavLink to='/' className={`navbar ${path === "/" ? "Logo" : "other-logo"}`}>
+                    <img className={`navbar ${path === "/" ? "logoImg" : "other-img"}`} src={logoUrl} alt="logo" />
+                </NavLink></>}
         <div className='aboutMeDiv'>
         <NavLink to={`/aboutMe`} className='aboutme' activeclassname='active'>  Sobre mí </NavLink>
         <span className='aboutme'>Recursos</span>

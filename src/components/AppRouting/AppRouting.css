@@ -3,7 +3,12 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
+    opacity: 0;
 }
 .itemListSection{
     margin: 0px 64px 0px 64px;
+}
+
+.Progress{
+    margin-top: 800px;
 }

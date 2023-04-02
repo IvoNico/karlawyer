@@ -30,9 +30,9 @@ export default function AboutMe() {
             </div>
             <img className="aboutMeImg" src={imagen.imagek} alt="img Karla Gribaudo" />
             </div>
-        <div className='aboutMeP1'>
+        <div className='aboutMeP1UX'>
         <img className="aboutMeImg1" src={imagen.imageUx} alt="img Ux desing karla" />
-            <p>Si bien la idea de este blog es otorgar información legal o fiscal, también puede que enuentren datos sobre marketer y diseño web. Este blog y página web fue totalmente diseñado por mí (en cuanto a la experiencia al usuario) en medio de viajes, aeropuertos y mudanzas, por lo que espero que tu visita a estas páginas sea muy gratificante.</p>
+        <p>Si bien la idea de este blog es otorgar información legal o fiscal, también puede que enuentren datos sobre marketer y diseño web. Este blog y página web fue totalmente diseñado por mí (en cuanto a la experiencia al usuario) en medio de viajes, aeropuertos y mudanzas, por lo que espero que tu visita a estas páginas sea muy gratificante.</p>
         </div>
         <div className='aboutMeP3'>
             <p>En este blog, compartiré mis experiencias y conocimientos sobre diversos temas legales, en ayuda principalmente aquellos colegas freelancers y/o autónomos que desarrollan sus negocios digitales y viajan </p>

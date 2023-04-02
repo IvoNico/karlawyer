@@ -96,9 +96,53 @@
 }
 
 /*RESPONSIVE*/
+@media screen and (max-width: 463px) and (min-width: 200px){
+    .other-page{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .other-img{
+        position:absolute;
+        right:80%;
+        width: 115px;
+        display: flex;
+        align-items: center;
+        margin-left: 115px;
+    }
+    .redesSociales img{
+        width: 25px;
+        height: 15px;
+    }
+}
+@media screen and (max-width: 553px) and (min-width: 463px){
+    .other-page{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .other-img{
+        position:absolute;
+        width: 155px;
+        right:80%;
+        margin-left: 115px;
+    }
 
+}
+@media screen and (max-width: 1000px) and (min-width: 857px){
+    .other-img{
+        position:absolute;
+        margin: 10px auto 10px 10px;
+        right:100%;
+    }
+    .redesSociales, .aboutMeDiv{
+        right: 0;
+        margin:10px auto 10px 10px;
+        padding: 0;
+    }
+}
 @media (max-width:858px){
-    .home-page{
+    .home-page, .other-page{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -135,15 +179,13 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-
-        
     }
     .logoImg{
         margin: 0 auto;
         width: 250px;
         height: 10vh;
-        
     }
+    
     .aboutme{
         margin-bottom: 25px;
     }

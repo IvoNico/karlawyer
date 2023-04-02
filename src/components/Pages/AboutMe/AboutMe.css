@@ -14,7 +14,7 @@
     font-size: 28px;
     margin-top: 57px;
 }
-.aboutMeP1{
+.aboutMeP1, .aboutMeP1UX{
     display: flex;
     flex-direction: row;
     margin: 60px 0px 60px 0px;
@@ -28,7 +28,7 @@
     flex-direction: column;
 }
 
-.aboutMeP1 p{
+.aboutMeP1 p, .aboutMeP1UX p{
     margin: 25px 31px 0px 31px;
     text-align: left;
     font-size: 1.2rem;
@@ -56,3 +56,103 @@
     width: 500px;
     height: 300px;
 }
+
+@media screen and (max-width: 510px) and (min-width: 300px){
+    .AboutMe{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        margin: 0px 10px 0px 10px;
+    }
+    .aboutMeTitle{
+        position: relative;
+        top: 0;
+        margin: 9px 0px 6px 0px;
+        display: flex;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        margin-top: 7px;
+    }
+    .aboutMeP1{
+        display: flex;
+        flex-direction: column;
+        margin: 6px 0px 6px 0px;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        
+    }
+    .aboutMeP1 p, .aboutMeP1UX p, .aboutMeP3 p{
+        margin: 5px 1px 0px 1px;
+        text-align: left;
+        font-size: 0.6rem;
+        letter-spacing: normal;
+        line-height: 15px;
+    }
+    .aboutMeImg{
+        width: 150px;
+        height: 200px;
+        margin-top: 25px;
+    }
+    .aboutMeImg1{
+        width: 200px;
+        height: 150px;
+        margin-top: 25px;
+    }
+    .aboutMeP1UX{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+   
+}
+@media screen and (max-width: 1200px) and (min-width: 510px){
+    .AboutMe{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        margin: 0px 20px 0px 20px;
+    }
+    .aboutMeTitle{
+        position: relative;
+        top: 0;
+        margin: 19px 0px 16px 0px;
+        display: flex;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 28px;
+        margin-top: 17px;
+    }
+    .aboutMeP1{
+        display: flex;
+        flex-direction: column;
+        margin: 6px 0px 6px 0px;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        
+    }
+    .aboutMeP1 p, .aboutMeP1UX p, .aboutMeP3 p{
+        margin: 10px 5px 0px 10px;
+        text-align: left;
+        font-size: 1rem;
+        letter-spacing: normal;
+        line-height: 25px;
+    }
+    .aboutMeImg{
+        width: 250px;
+        height: 300px;
+        margin-top: 25px;
+    }
+    .aboutMeImg1{
+        width: 300px;
+        height: 200px;
+        margin-top: 25px;
+    }
+    .aboutMeP1UX{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+   
+}
+

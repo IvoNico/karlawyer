@@ -1,0 +1,11 @@
+.LinearProgress{
+    position: absolute;
+    z-index: 100000;
+}
+.Stack{
+    margin: 18px;
+}
+.Stackfooter{
+    background-color:none;
+    color: white;
+}
